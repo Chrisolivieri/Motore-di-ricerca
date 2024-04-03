@@ -123,21 +123,17 @@ const jobs = [
   },
 ]
 
-function cercaLavoro(){
-  let lavoriTrovati = []
+function cercaLavori(userLocation,title){
+  let results = []
   let count = 0
 
-  let lavoro = document.getElementById("lavoro").value.toLowercase()
-  let location = document.getElementById("location").value.toLowercase()
-
-  for(let i=0; i<jobs.length; i++){
-    const job = jobs[i]
-    
-    if(lavoro.includes(lavoro) && location.includes(location)){
-      lavoriTrovati.push(job)
-      count++
-    }
+  for(let foundJob of jobs){
+   if(foundJob.location.includes(userLocation) && foundJob.title.includes(title)){
+    results.push(foundJob)
+    count++
+   } 
   }
-  
-  
+ return {results, count}
 }
+
+console.log(cercaLavori("US","Craftsman Associate"))
