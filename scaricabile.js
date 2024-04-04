@@ -123,17 +123,25 @@ const jobs = [
   },
 ]
 
+let button = document.getElementById("bottone")
+button.addEventListener("click",cercaLavori("results","count"))
+
+
 function cercaLavori(userLocation,title){
+
+const locationInput = userLocation.toLowerCase()
+const titleInput = title.toLowerCase()
+
   let results = []
   let count = 0
 
   for(let foundJob of jobs){
-   if(foundJob.location.includes(userLocation) && foundJob.title.includes(title)){
+   if(foundJob.location.toLowerCase().includes(locationInput) && foundJob.title.toLowerCase().includes(titleInput)){
     results.push(foundJob)
     count++
    } 
   }
+  // sarebbe {results : results, count : count}  ma se i nomi sono uguali possiamo abbreviare come segue
  return {results, count}
 }
-
-console.log(cercaLavori("US","Craftsman Associate"))
+ 
