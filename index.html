@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cerca Lavoro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
     <h1>Cerca Lavoro</h1>
     
-    <input type="text" id="location" value="" placeholder="Inserisci location">
-    <input type="text" id="lavoro" value="" placeholder="Inserisci lavoro">
-    <button id="bottone">Cerca</button>
-    <div id="risultati"></div>
+    <form>
+        <input type="text" id="location" value="" placeholder="Inserisci location">
+        <input type="text" id="lavoro" value="" placeholder="Inserisci lavoro">
+        <button type="button" id="bottone" value="cerca"><i class="fas fa-search"></i> Cerca</button>
+    </form>
 
+    <div id ="risultati"></div>
+    
     <script src="scaricabile.js"></script>  
 </body>
 </html>

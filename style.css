@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#location {
+    width: 30em;
+    height: 2em;
+}
+
+#lavoro {
+    width: 30em;
+    height: 2em;
+}
+
+#bottone{
+    border-radius: 70px;
+    background-color: black;
+    color: white;
+}

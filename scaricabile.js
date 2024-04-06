@@ -123,10 +123,7 @@ const jobs = [
   },
 ]
 
-let button = document.getElementById("bottone")
-button.addEventListener("click",cercaLavori("results","count"))
-
-
+//creo una funzione per ciclare in jobs e per rendere la ricerca case sensitive
 function cercaLavori(userLocation,title){
 
 const locationInput = userLocation.toLowerCase()
@@ -141,7 +138,50 @@ const titleInput = title.toLowerCase()
     count++
    } 
   }
-  // sarebbe {results : results, count : count}  ma se i nomi sono uguali possiamo abbreviare come segue
+// sarebbe {results : results, count : count}  ma se i nomi sono uguali possiamo abbreviare come segue
  return {results, count}
 }
- 
+
+// creo un addeventlistener per il bottone
+let button = document.getElementById("bottone")
+button.addEventListener("click",mostraRisultati)
+
+// creo una funzione per mostrare i risultati
+function mostraRisultati(){
+  let location = document.getElementById("location").value
+  let title = document.getElementById("lavoro").value 
+  let lavoriCercati = cercaLavori(location,title)
+  let contenitore = document.getElementById("risultati")
+
+// ogni volta che facciamo una ricerca la resettiamo con una stringa vuota
+  const ul = document.getElementById("risultati")
+    ul.innerHTML = ""
+  
+// se la ricerca non contiente paramentri mi compare un alert
+  if(location === "" || title === ""){
+    alert("Inserisci prima i parametri per la ricerca")
+  }else{
+
+// se non c'è nessun risultato mostro a schermo che non ci sono risultati
+    if(lavoriCercati.count === 0){
+      const contatoreVuoto = document.createElement("p")
+      contatoreVuoto.innerText = "Nessun risultato trovato"
+      contenitore.appendChild(contatoreVuoto)
+      return
+    }
+    
+// mostro a schermo il numero di risultati trovati
+    const rsl = document.createElement("p")
+    rsl.innerText = "Risultati trovati" + " " + lavoriCercati.count
+    contenitore.appendChild(rsl)
+
+// per ogni lavoro trovato creiamo un elemento ul in cui viene messo
+   for(let lavoro of lavoriCercati.results){
+    let ul = document.createElement("ul")
+    ul.innerHTML = lavoro.location + " " + lavoro.title
+    contenitore.appendChild(ul)
+    }
+  }
+}
+
+
