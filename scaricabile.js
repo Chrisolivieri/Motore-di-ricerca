@@ -157,12 +157,12 @@ function mostraRisultati(){
   const ul = document.getElementById("risultati")
     ul.innerHTML = ""
   
-// se la ricerca non contiente paramentri mi compare un alert
+// se la ricerca non contiente paramentri compare un alert
   if(location === "" || title === ""){
     alert("Inserisci prima i parametri per la ricerca")
   }else{
 
-// se non c'è nessun risultato mostro a schermo che non ci sono risultati
+// se non c'è nessun risultato viene visualizzato a schermo che non ci sono risultati
     if(lavoriCercati.count === 0){
       const contatoreVuoto = document.createElement("p")
       contatoreVuoto.innerText = "Nessun risultato trovato"
@@ -175,7 +175,7 @@ function mostraRisultati(){
     rsl.innerText = "Risultati trovati" + " " + lavoriCercati.count
     contenitore.appendChild(rsl)
 
-// per ogni lavoro trovato creiamo un elemento ul in cui viene messo
+// per ogni lavoro trovato creo un elemento ul in cui viene messo
    for(let lavoro of lavoriCercati.results){
     let ul = document.createElement("ul")
     ul.innerHTML = lavoro.location + " " + lavoro.title
